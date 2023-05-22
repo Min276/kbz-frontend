@@ -1,8 +1,4 @@
-// import { Box, Image, Text } from "@chakra-ui/react";
-// import { useRouter } from "next/router";
 import { FunctionComponent } from "react";
-// import { colors } from "../../data/constant";
-// import ArrowButton from "../Button/ArrowButton";
 import styles from "./grid.module.css";
 import { FaClock } from "react-icons/fa";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
@@ -13,12 +9,11 @@ interface IProps {
   bgColor?: string;
 }
 const GridCard: FunctionComponent<IProps> = ({ color, bgColor, data }) => {
-//   const router = useRouter();
 
-  const formatDate = (utcDate:any) => {
-    const options:any = { day: 'numeric', month: 'long', year: 'numeric' };
+  const formatDate = (utcDate: any) => {
+    const options: any = { day: "numeric", month: "long", year: "numeric" };
     return new Date(utcDate).toLocaleDateString(undefined, options);
-  }
+  };
 
   const limitCharacters = (text: any) => {
     return text.slice(" ", 100).concat("...");
@@ -42,30 +37,29 @@ const GridCard: FunctionComponent<IProps> = ({ color, bgColor, data }) => {
         alt="cover"
       />
       <div className="p-4 shadow-lg rounded-b-lg h-72">
-        <h2
-          className="text-xl font-semibold color-[#082A36]"
-        >
-          {data.title}
-        </h2>
+        <h2 className="text-xl font-semibold color-[#082A36]">{data.title}</h2>
         <div className="flex mt-3 justify-between">
-        <div className="flex items-center gap-1 my-2">
-            <img className="rounded-full w-8 h-8" src={data.avatar} alt="avatars"/>
+          <div className="flex items-center gap-1 my-2">
+            <img
+              className="rounded-full w-8 h-8"
+              src={data.avatar}
+              alt="avatars"
+            />
             <h4 className="text-base color-[#4F5A5E]">{data.name}</h4>
-        </div>
-        <div className="flex items-center gap-1 my-2">
+          </div>
+          <div className="flex items-center gap-1 my-2">
             <FaClock color="#4F5A5E" />
             <h4 className="text-sm color-[#4F5A5E]">{formattedDate}</h4>
+          </div>
         </div>
-        </div>
-        <p
-          className="mt-1 mb-2 color-[#4F5A5E]"
-        >
+        <p className="mt-1 mb-2 color-[#4F5A5E]">
           {limitCharacters(data.description)}
         </p>
-      
-          <a href="/" className="flex gap-2 mt-6" color="#082A36">Read More 
+
+        <a href="/" className="flex gap-2 mt-6" color="#082A36">
+          Read More
           <HiOutlineArrowNarrowRight fontSize="24px" />
-</a>
+        </a>
       </div>
     </div>
   );
