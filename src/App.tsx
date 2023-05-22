@@ -1,16 +1,20 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Layout from "./components/Layout";
-import HeroSection from "./components/HeroSection";
-import KBZMoneyAlerts from "./components/KBZMoneyAlerts";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Blog from "./pages/Blog/index";
+import PageNotFound from "./pages/PageNotFound";
+import BlogView from "./pages/Blog/[id]";
 
 function App() {
   return (
-    <Layout>
-      <HeroSection />
-      <KBZMoneyAlerts />
-    </Layout>
+    <>
+     <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogView />} />
+        <Route path="*" element={<PageNotFound />} />
+     </Routes>
+    </>
   );
 }
 

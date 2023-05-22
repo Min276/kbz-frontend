@@ -1,13 +1,18 @@
+import { FunctionComponent } from "react";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
 
+interface IProps {
+  children: any;
+  blog?: boolean;
+}
 
-const Layout = ({ children }: any) => {
+const Layout:FunctionComponent<IProps> = ({ children, blog }: any) => {
   return (
     <div>
-        <NavBar />
-          <div>{children}</div>
-        <Footer />
+      <NavBar blog={blog} />
+      <div>{children}</div>
+      <Footer />
     </div>
   );
 };
