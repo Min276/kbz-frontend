@@ -17,7 +17,7 @@ const CardCarousel: FunctionComponent<IProps> = ({
   return (
     <div>
       <div
-        className="w-full px-44 py-4 "
+        className="w-full px-40 py-4 "
         style={{ maxWidth : maxWidth || "100%"}}
       >
         <Swiper

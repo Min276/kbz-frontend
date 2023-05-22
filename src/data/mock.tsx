@@ -200,3 +200,28 @@ export const mockData = [
       id: "20"
     }
   ]
+
+  export const RecentPosts = [
+    {
+      title: "Major Crypto Exchanges Face Action Over",
+      image: "/assets/image-1.svg",
+      time: "8 hours ago",
+    },
+    {
+      title: "FinCEN issues regulations requiring that financial",
+      image: "/assets/image-2.svg",
+      time: "8 hours ago",
+    },
+    {
+      title: "US State Bank Supervisors Issue Model",
+      image: "/assets/image-3.svg",
+      time: "8 hours ago",
+    },
+    {
+      title: "Targeting Order for Certain Real Estate Transactions",
+      image: "/assets/image-4.svg",
+      time: "8 hours ago",
+    },
+  ]
+
+  export const Tags = ["Money alerts", "News", "Technology", "Crypto-currencies", "AML Outsourcing", "AML Services", "Support"]

@@ -2,13 +2,16 @@ import { FunctionComponent } from "react";
 import styles from "./grid.module.css";
 import { FaClock } from "react-icons/fa";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+// import { useRouter } from "react-router-dom";
+
 
 interface IProps {
   data?: any;
-  color?: string;
   bgColor?: string;
 }
-const GridCard: FunctionComponent<IProps> = ({ color, bgColor, data }) => {
+const GridCard: FunctionComponent<IProps> = ({ bgColor, data }) => {
+
+  // const router = useRouter();
 
   const formatDate = (utcDate: any) => {
     const options: any = { day: "numeric", month: "long", year: "numeric" };
@@ -32,7 +35,6 @@ const GridCard: FunctionComponent<IProps> = ({ color, bgColor, data }) => {
         height={400}
         width={400}
         className="rounded-t-lg"
-        // style={{ borderRadius: "25px 25px 0 0" }}
         src={data.newsImage}
         alt="cover"
       />
@@ -56,7 +58,7 @@ const GridCard: FunctionComponent<IProps> = ({ color, bgColor, data }) => {
           {limitCharacters(data.description)}
         </p>
 
-        <a href="/" className="flex gap-2 mt-6" color="#082A36">
+        <a href={`/blog/${data.id}`} className="flex gap-2 mt-6" color="#082A36">
           Read More
           <HiOutlineArrowNarrowRight fontSize="24px" />
         </a>

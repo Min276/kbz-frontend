@@ -1,10 +1,20 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, FunctionComponent } from "react";
 import { FiSearch, FiMail } from "react-icons/fi";
 import { SlScreenSmartphone } from "react-icons/sl";
+import styles from "./navbar.module.css";
+import { Link } from "react-router-dom";
 
-const NavBar = () => {
+interface IProps {
+  blog?: boolean;
+}
+
+const NavBar:FunctionComponent<IProps> = ({blog}) => {
   const [open, setOpen] = useState<boolean>(false);
   const inputRef: any = useRef(null);
+  const [activeState, setActiveState] = useState('home');
+  const handleItemClick = (item:any) => {
+    setActiveState(item);
+  };
 
   const handleClick = () => {
     inputRef.current.focus();
@@ -14,6 +24,9 @@ const NavBar = () => {
   useEffect(() => {
     if (open) {
       inputRef.current.focus();
+    }
+    if(blog) {
+      setActiveState('blog')
     }
   }, [open]);
 
@@ -47,11 +60,13 @@ const NavBar = () => {
             <img src="/assets/logo.svg" alt="logo" width={200} height={200} />
           </a>
           <ul className="flex items-center ml-20 gap-8">
-            <li className="pb-7 mt-8 px-1 border-b-4 border-[#015EB9] font-[500] text-[#015EB9]">
-              <a href="/"> Home </a>
+            <li
+          className={activeState === 'home' ? styles.active : styles.normal} onClick={() => handleItemClick('home')}>
+              <Link to="/"> Home </Link>
             </li>
-            <li className="py-7 px-4 font-[500]">
-              <a href="/blog"> Blog </a>
+            <li 
+          className={activeState === 'blog' ? styles.active : styles.normal } onClick={() => handleItemClick('blog')}>
+              <Link to="/blog"> Blog </Link>
             </li>
           </ul>
         </div>
